@@ -32,6 +32,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface
     protected $fillable = array('firstname', 'lastname', 'email', 'password');
 
 
+    /**
+     * Get the roles associated with this user
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function roles()
     {
         return $this->belongsToMany('MDH\Roles\Role')->withTimestamps();

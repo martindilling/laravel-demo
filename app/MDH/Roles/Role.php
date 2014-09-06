@@ -1,6 +1,7 @@
 <?php namespace MDH\Roles;
 
 use Eloquent;
+use MDH\Permissions\Permission;
 
 class Role extends Eloquent
 {
@@ -19,9 +20,36 @@ class Role extends Eloquent
     protected $fillable = array('name', 'machinename');
 
 
+    /**
+     * Get the users associated with this role
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function users()
     {
         return $this->belongsToMany('MDH\Users\User')->withTimestamps();
     }
 
+    /**
+     * Get the permissions associated with this role
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function permissions()
+    {
+        return $this->belongsToMany('MDH\Permissions\Permission')->withTimestamps();
+    }
+
+
+    /**
+     * Add a permission to the role
+     *
+     * @param string $machinename
+     */
+    public function addPermission($machinename)
+    {
+        $permission = Permission::whereMachinename($machinename)->first();
+
+        $this->permissions()->attach($permission);
+    }
 }

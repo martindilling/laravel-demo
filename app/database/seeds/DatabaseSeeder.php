@@ -8,6 +8,8 @@ class DatabaseSeeder extends Seeder
      * @var array
      */
     protected $tables = [
+        'permission_role',
+        'permissions',
         'role_user',
         'roles',
         'users',
@@ -19,6 +21,7 @@ class DatabaseSeeder extends Seeder
      * @var array
      */
     protected $seeders = [
+        'PermissionsTableSeeder',
         'RolesTableSeeder',
         'UsersTableSeeder',
     ];
