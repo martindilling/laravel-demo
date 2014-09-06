@@ -9,3 +9,6 @@ Thumbs.db
 
 # Ignore editor config folders
 .idea
+
+# Temporary
+/AdminLTE
