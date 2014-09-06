@@ -5,7 +5,6 @@ use Illuminate\Database\Schema\Blueprint;
 
 class CreateUsersTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -15,7 +14,6 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
                 $table->increments('id');
-                $table->integer('role_id')->unsigned();
                 $table->string('firstname');
                 $table->string('lastname');
                 $table->string('email')->unique();

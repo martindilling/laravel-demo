@@ -9,39 +9,28 @@ class RolesTableSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        Role::create(
-            [
-                'name' => 'Developer',
-                'machinename' => 'developer',
-            ]
-        );
-
-        Role::create(
-            [
-                'name' => 'Owner',
-                'machinename' => 'owner',
-            ]
-        );
-
-        Role::create(
+        $roles = [
             [
                 'name' => 'Admin',
                 'machinename' => 'admin',
-            ]
-        );
-
-        Role::create(
+            ],
             [
-                'name' => 'Manager',
-                'machinename' => 'manager',
-            ]
-        );
-
-        Role::create(
+                'name' => 'Usermanager',
+                'machinename' => 'usermanager',
+            ],
+            [
+                'name' => 'Rolemanager',
+                'machinename' => 'rolemanager',
+            ],
             [
                 'name' => 'User',
                 'machinename' => 'user',
-            ]
-        );
+            ],
+        ];
+
+        foreach ($roles as $role) {
+            Role::create($role);
+        }
+
     }
 }

@@ -12,15 +12,22 @@ class UsersTableSeeder extends Seeder
         $roles = Role::lists('id');
 
         foreach (range(1, 20) as $i) {
-            User::create(
+            $user = User::create(
                 [
-                    'role_id'   => $i == 1 ? 1                  : $faker->randomElement($roles),
                     'firstname' => $i == 1 ? 'John'             : $faker->firstName,
                     'lastname'  => $i == 1 ? 'Doe'              : $faker->lastName,
                     'email'     => $i == 1 ? 'john@example.com' : $faker->unique()->email,
                     'password'  => Hash::make('password'),
                 ]
             );
+
+            if ($i == 1) {
+                $rolesToAssign = [1];
+            } else {
+                $rolesToAssign = $faker->randomElements($roles, mt_rand(1,3));
+            }
+
+            $user->roles()->sync($rolesToAssign);
         }
     }
 }

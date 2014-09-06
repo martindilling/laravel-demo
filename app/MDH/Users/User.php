@@ -8,7 +8,6 @@ use Eloquent;
 
 class User extends Eloquent implements UserInterface, RemindableInterface
 {
-
     use UserTrait, RemindableTrait;
 
     /**
@@ -32,4 +31,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface
      */
     protected $fillable = array('firstname', 'lastname', 'email', 'password');
 
+
+    public function roles()
+    {
+        return $this->belongsToMany('MDH\Roles\Role')->withTimestamps();
+    }
 }

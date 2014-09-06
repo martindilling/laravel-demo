@@ -18,4 +18,10 @@ class Role extends Eloquent
      */
     protected $fillable = array('name', 'machinename');
 
+
+    public function users()
+    {
+        return $this->belongsToMany('MDH\Users\User')->withTimestamps();
+    }
+
 }
