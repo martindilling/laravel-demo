@@ -4,7 +4,7 @@ use Illuminate\Auth\UserTrait;
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
-use Eloquent;
+use Eloquent, Hash;
 
 class User extends Eloquent implements UserInterface, RemindableInterface
 {
@@ -40,5 +40,16 @@ class User extends Eloquent implements UserInterface, RemindableInterface
     public function roles()
     {
         return $this->belongsToMany('MDH\Roles\Role')->withTimestamps();
+    }
+
+
+    /**
+     * Hash password before setting it.
+     *
+     * @param $password
+     */
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = Hash::make($password);
     }
 }

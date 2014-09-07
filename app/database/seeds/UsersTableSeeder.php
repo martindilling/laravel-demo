@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
                     'firstname' => $i == 1 ? 'John'             : $faker->firstName,
                     'lastname'  => $i == 1 ? 'Doe'              : $faker->lastName,
                     'email'     => $i == 1 ? 'john@example.com' : $faker->unique()->email,
-                    'password'  => Hash::make('password'),
+                    'password'  => 'password',
                 ]
             );
 
