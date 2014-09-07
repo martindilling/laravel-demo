@@ -122,7 +122,11 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
+        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Way\Generators\GeneratorsServiceProvider',
+        'Clockwork\Support\Laravel\ClockworkServiceProvider',
+        'Laracasts\Flash\FlashServiceProvider',
+        'Laracasts\Validation\ValidationServiceProvider',
 
 	),
 
@@ -190,6 +194,9 @@ return array(
 		'URL'               => 'Illuminate\Support\Facades\URL',
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
+
+        'Clockwork'         => 'Clockwork\Support\Laravel\Facade',
+        'Flash'             => 'Laracasts\Flash\Flash',
 
 	),
 

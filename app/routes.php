@@ -11,7 +11,15 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+/**
+ * Home route
+ */
+Route::get('/', array('as' => 'home', 'uses' => 'PagesController@dashboard'))->before('auth');
+
+
+/**
+ * Auth routes
+ */
+Route::get( 'login',    array('as' => 'login',          'uses' => 'SessionsController@create'))->before('guest');
+Route::get( 'logout',   array('as' => 'logout',         'uses' => 'SessionsController@destroy'))->before('auth');
+Route::post('sessions', array('as' => 'sessions.store', 'uses' => 'SessionsController@store'))->before('guest');

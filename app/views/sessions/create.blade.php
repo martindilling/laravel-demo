@@ -14,7 +14,9 @@
 
     <div class="form-box" id="login-box">
         <div class="header">Sign In</div>
-        {{ Form::open() }}
+        @include('flash::message', ['extraClass' => 'alert-login'])
+        @include('layouts.partials.errors', ['extraClass' => 'alert-login'])
+        {{ Form::open(['route' => 'sessions.store']) }}
             <div class="body bg-gray">
                 <div class="form-group">
                     {{ Form::text('email', null, array(
@@ -29,7 +31,7 @@
                 </div>
                 <div class="form-group">
                     <label class="checkbox">
-                        {{ Form::checkbox('remember_me', 'false') }}
+                        {{ Form::checkbox('remember_me') }}
                         Remember me
                     </label>
                 </div>

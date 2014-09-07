@@ -4,6 +4,7 @@
 @section('styles')
     {{ HTML::style('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css') }}
     {{ HTML::style('assets/admin-lte/css/AdminLTE.css') }}
+    {{ HTML::style('assets/css/main.css') }}
 @endsection
 
 @section('scripts')

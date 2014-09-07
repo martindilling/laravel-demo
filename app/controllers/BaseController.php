@@ -1,18 +1,35 @@
 <?php
 
-class BaseController extends Controller {
+class BaseController extends Controller
+{
+    /**
+     * Create a new BaseController instance.
+     */
+    public function __construct()
+    {
+        // Make sure our posts are secure
+        $this->beforeFilter('csrf', ['on' => ['post', 'put', 'patch', 'delete']]);
 
-	/**
-	 * Setup the layout used by the controller.
-	 *
-	 * @return void
-	 */
-	protected function setupLayout()
-	{
-		if ( ! is_null($this->layout))
-		{
-			$this->layout = View::make($this->layout);
-		}
-	}
+        // Before event for Clockwork
+        $this->beforeFilter(function () {
+            Event::fire('clockwork.controller.start');
+        });
 
+        // After event for Clockwork
+        $this->afterFilter(function () {
+            Event::fire('clockwork.controller.end');
+        });
+    }
+
+    /**
+     * Setup the layout used by the controller.
+     *
+     * @return void
+     */
+    protected function setupLayout()
+    {
+        if (!is_null($this->layout)) {
+            $this->layout = View::make($this->layout);
+        }
+    }
 }

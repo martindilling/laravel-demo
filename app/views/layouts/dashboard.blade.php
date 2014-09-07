@@ -6,6 +6,7 @@
     {{ HTML::style('assets/admin-lte/css/font-awesome.min.css') }}
     {{ HTML::style('assets/admin-lte/css/ionicons.min.css') }}
     {{ HTML::style('assets/admin-lte/css/AdminLTE.css') }}
+    {{ HTML::style('assets/css/main.css') }}
 @endsection
 
 
@@ -23,6 +24,7 @@
         @include('layouts.partials.sidebar')
         <aside class="right-side">
             @include('layouts.partials.content-header')
+            @include('flash::message')
             <section class="content">
                 @yield('content')
             </section>
