@@ -17,6 +17,7 @@ class CreatePermissionsTable extends Migration
                 $table->string('name');
                 $table->string('machinename')->unique();
                 $table->timestamps();
+                $table->engine = "InnoDB";
             }
         );
     }
