@@ -5,3 +5,9 @@ MDH\Users\User:
   password: secret
   created_at: $date
   updated_at: $date
+
+MDH\Roles\Role:
+  name: $string
+  machinename: $string
+  created_at: $date
+  updated_at: $date

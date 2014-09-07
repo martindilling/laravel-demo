@@ -29,7 +29,7 @@ $env = $app->detectEnvironment(function()
     if (getenv('APP_ENV')) {
         return getenv('APP_ENV');
     } else {
-        return 'production';
+        return 'local';
     }
 });
 

@@ -8,3 +8,11 @@
 .alert-login {
     margin-bottom: 0;
 }
+
+form.form-btn {
+    display: inline-block;
+}
+
+.box-app-buttons .box-body {
+    padding-bottom: 0px;
+}

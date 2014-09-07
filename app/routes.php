@@ -23,3 +23,18 @@ Route::get('/', array('as' => 'home', 'uses' => 'PagesController@dashboard'))->b
 Route::get( 'login',    array('as' => 'login',          'uses' => 'SessionsController@create'))->before('guest');
 Route::get( 'logout',   array('as' => 'logout',         'uses' => 'SessionsController@destroy'))->before('auth');
 Route::post('sessions', array('as' => 'sessions.store', 'uses' => 'SessionsController@store'))->before('guest');
+
+
+
+Route::group(array('before' => 'auth'), function()
+{
+    /**
+     * Users routes
+     */
+    Route::get(   'users',           array('as' => 'users.index',   'uses' => 'UsersController@index'));
+    Route::get(   'users/create',    array('as' => 'users.create',  'uses' => 'UsersController@create'));
+    Route::post(  'users',           array('as' => 'users.store',   'uses' => 'UsersController@store'));
+    Route::get(   'users/{id}/edit', array('as' => 'users.edit',    'uses' => 'UsersController@edit'));
+    Route::delete('users/{id}',      array('as' => 'users.destroy', 'uses' => 'UsersController@destroy'));
+
+});

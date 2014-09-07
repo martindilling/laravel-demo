@@ -25,6 +25,7 @@
         <aside class="right-side">
             @include('layouts.partials.content-header')
             @include('flash::message')
+            @include('layouts.partials.errors')
             <section class="content">
                 @yield('content')
             </section>
