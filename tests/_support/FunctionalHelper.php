@@ -11,7 +11,7 @@ class FunctionalHelper extends \Codeception\Module
 
     public function haveAnAccount($overrides = [])
     {
-        $this->have('MDH\Users\User', $overrides);
+        return $this->have('MDH\Users\User', $overrides);
     }
 
     public function have($model, $overrides = [])

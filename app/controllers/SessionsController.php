@@ -55,6 +55,8 @@ class SessionsController extends BaseController
     {
         Auth::logout();
 
-        return Redirect::home();
+        Flash::message('You are now logged out!');
+
+        return Redirect::route('login');
     }
 }

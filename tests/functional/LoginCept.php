@@ -1,16 +1,13 @@
 <?php
 $I = new FunctionalTester($scenario);
 
-$I->am('a guest');
-$I->wantTo('sign in to the website');
+$I->am('a member');
+$I->wantTo('login with my credentials');
 
 $email    = 'john@example.com';
 $password = 'secret';
 $I->haveAnAccount(
     [
-        'id'        => 1,
-        'firstname' => 'John',
-        'lastname'  => 'Doe',
         'email'     => $email,
         'password'  => $password,
     ]
@@ -21,8 +18,7 @@ $I->amOnRoute('login');
 
 $I->fillField('email', $email);
 $I->fillField('password', $password);
-//$I->click('Sign me in');
-$I->click('Sign me in');
+$I->click('.login input[type=submit]');
 
 $I->seeCurrentUrlEquals('');
 $I->seeElement('.alert');
