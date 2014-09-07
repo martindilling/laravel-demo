@@ -16,7 +16,7 @@
         <div class="header">Sign In</div>
         @include('flash::message', ['extraClass' => 'alert-login'])
         @include('layouts.partials.errors', ['extraClass' => 'alert-login'])
-        {{ Form::open(['route' => 'sessions.store']) }}
+        {{ Form::open(['route' => 'sessions.store', 'class' => 'login']) }}
             <div class="body bg-gray">
                 <div class="form-group">
                     {{ Form::text('email', null, array(

@@ -1,0 +1,7 @@
+MDH\Users\User:
+  firstname: $string
+  lastname: $string
+  email: $string$integer@example.com
+  password: secret
+  created_at: $date
+  updated_at: $date
