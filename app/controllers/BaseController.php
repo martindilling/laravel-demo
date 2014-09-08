@@ -19,6 +19,8 @@ class BaseController extends Controller
         $this->afterFilter(function () {
             Event::fire('clockwork.controller.end');
         });
+
+        View::share('currentUser', Auth::user());
     }
 
     /**

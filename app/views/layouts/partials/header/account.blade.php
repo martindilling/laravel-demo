@@ -2,15 +2,15 @@
 <li class="dropdown user user-menu">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
         <i class="glyphicon glyphicon-user"></i>
-        <span>Jane Doe <i class="caret"></i></span>
+        <span>{{ $currentUser->present()->getName() }} <i class="caret"></i></span>
     </a>
     <ul class="dropdown-menu">
         <!-- User image -->
         <li class="user-header bg-light-blue">
             <img src="img/avatar3.png" class="img-circle" alt="User Image" />
             <p>
-                Jane Doe - Web Developer
-                <small>Member since Nov. 2012</small>
+                {{ $currentUser->present()->getName() }} - Web Developer
+                <small>Member since {{ $currentUser->present()->getCreatedAt() }}</small>
             </p>
         </li>
         <!-- Menu Body -->
@@ -31,7 +31,7 @@
                 <a href="#" class="btn btn-default btn-flat">Profile</a>
             </div>
             <div class="pull-right">
-                <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                {{ link_to_route('logout', 'Sign out', null, ['class' => 'btn btn-default btn-flat']) }}
             </div>
         </li>
     </ul>
