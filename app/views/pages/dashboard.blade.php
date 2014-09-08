@@ -5,6 +5,16 @@
     <div class="row">
         <div class="col-lg-3 col-xs-6">
             @include('......elements.small-box', [
+                'link'      => route('users.index'),
+                'color'     => 'yellow',
+                'header'    => $userCount,
+                'text'      => 'Users Registered',
+                'ionicon'   => 'person-add',
+                'more_text' => 'Manage users',
+            ])
+        </div>
+        <div class="col-lg-3 col-xs-6">
+            @include('......elements.small-box', [
                 'link'      => 'link',
                 'color'     => 'aqua',
                 'header'    => '150',
@@ -20,16 +30,6 @@
                 'header'    => '53<sup style="font-size: 20px">%</sup>',
                 'text'      => 'Bounce Rate',
                 'ionicon'   => 'stats-bars',
-                'more_text' => 'More info',
-            ])
-        </div>
-        <div class="col-lg-3 col-xs-6">
-            @include('......elements.small-box', [
-                'link'      => 'link',
-                'color'     => 'yellow',
-                'header'    => '44',
-                'text'      => 'User Registrations',
-                'ionicon'   => 'person-add',
                 'more_text' => 'More info',
             ])
         </div>

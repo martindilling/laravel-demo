@@ -19,8 +19,6 @@ class BaseController extends Controller
         $this->afterFilter(function () {
             Event::fire('clockwork.controller.end');
         });
-
-        View::share('currentUser', Auth::user());
     }
 
     /**
@@ -33,5 +31,7 @@ class BaseController extends Controller
         if (!is_null($this->layout)) {
             $this->layout = View::make($this->layout);
         }
+
+        View::share('currentUser', Auth::user());
     }
 }

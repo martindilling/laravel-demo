@@ -4,7 +4,7 @@ use MDH\FormValidators\CreateUserForm;
 use MDH\Roles\Role;
 use MDH\Users\User;
 
-class UsersController extends \BaseController
+class UsersController extends BaseController
 {
     /**
      * @var CreateUserForm
@@ -23,7 +23,7 @@ class UsersController extends \BaseController
      */
     public function index()
     {
-        $users = User::with('roles')->latest()->get();
+        $users = User::with('roles')->orderBy('firstname', 'asc')->get();
 
         return View::make('users.index', compact('users'));
     }

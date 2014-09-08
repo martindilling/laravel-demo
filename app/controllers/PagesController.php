@@ -1,5 +1,7 @@
 <?php
 
+use MDH\Users\User;
+
 class PagesController extends BaseController
 {
     /**
@@ -9,6 +11,9 @@ class PagesController extends BaseController
      */
     public function dashboard()
     {
-        return View::make('pages.dashboard');
+        $userCount = User::count();
+
+
+        return View::make('pages.dashboard', compact('userCount'));
     }
 }
