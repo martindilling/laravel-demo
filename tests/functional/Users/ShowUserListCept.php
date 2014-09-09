@@ -17,9 +17,9 @@ $I->amOnPage('users');
 $I->see($user1->firstname . ' ' . $user1->lastname);
 $I->see($user1->email);
 $I->seeLinkWithHref("/users/{$user1->id}/edit");
-$I->seeFormWithAction("/users/destroy?{$user1->id}");
+$I->seeDeleteFormWithAction("/users/{$user1->id}");
 
 $I->see('(unknown)');
 $I->see($user2->email);
 $I->seeLinkWithHref("/users/{$user2->id}/edit");
-$I->seeFormWithAction("/users/destroy?{$user2->id}");
+$I->seeDeleteFormWithAction("/users/{$user2->id}");

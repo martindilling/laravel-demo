@@ -41,6 +41,12 @@ class FunctionalHelper extends \Codeception\Module
         $I->seeElement("a[href*='{$href}']");
     }
 
+    public function seeDeleteFormWithAction($action)
+    {
+        $I = $this->getModule('Laravel4');
+        $I->seeElement("form[action$='{$action}'] input[name='_method'][type='hidden'][value='DELETE']");
+    }
+
     public function seeFormWithAction($action)
     {
         $I = $this->getModule('Laravel4');
